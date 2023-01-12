@@ -24,6 +24,12 @@ var person = {
   console.log(person);
   
   console.log(person.first-name);    // NaN: undefined-undefined
-  console.log(person[first-name]);   // ReferenceError: first is not defined
+  // console.log(person[first-name]);   // ReferenceError: first is not defined
   console.log(person['first-name']); // 'Ung-mo'
+  
+  var bar = function(a, b) {
+    return a * b;
+  };
+
+  console.log(bar(1,2));
   
