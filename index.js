@@ -55,17 +55,20 @@
 //   console.log(foo.gender); // ① 'male'
 //   console.log(bar.gender); // ① 'male'
 
-var x = 'global';
+// var x = 'global';
 
-function foo() {
-  var x = 'local';
-  console.log(x);
+// function foo() {
+//   var x = 'local';
+//   console.log(x);
 
-  function bar() {  // 내부함수
-    console.log(x); // ?
-  }
+//   function bar() {  // 내부함수
+//     console.log(x); // ?
+//   }
 
-  bar();
-}
-foo();
-console.log(x); // ?
+//   bar();
+// }
+// foo();
+// console.log(x); // ?
+console.log(1+1+'1');
+console.log('1'+1+1);
+console.log(1+1);

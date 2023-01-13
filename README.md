@@ -365,4 +365,213 @@ console.log(b); // "b" is not defined
   * 블록레벨 스코프
   * 객체의 내용은변경가능
 
-ES6 에선 var키워드를 사용x
+* ES6 에선 var키워드를 사용x
+* 템플릿 리터럴: 백틱 = "" 혼용해서 사용가능
+* 백틱사용하면 줄바꿈 백슬래시를 사용하지 않고 엔터키 누르면 줄바꿈 됨
+```
+const a = `asdasd
+asdasd`;
+```
+
+* 화살표함수
+```
+// ES5
+var arr = [1, 2, 3];
+var pow = arr.map(function (x) { // x는 요소값
+  return x * x;
+});
+
+console.log(pow); // [ 1, 4, 9 ]
+
+
+// ES6
+const arr = [1, 2, 3];
+const pow = arr.map(x => x * x);
+
+console.log(pow); // [ 1, 4, 9 ]
+```
+
+* 화살표 함수는 생성자 함수로 사용불가
+* Rest파라미터: 함수에 들어오는 값을 배열로 묶어준다
+```
+function foo(...rest) {
+  console.log(Array.isArray(rest)); // true
+  console.log(rest); // [ 1, 2, 3, 4, 5 ]
+}
+
+foo(1, 2, 3, 4, 5);
+```
+* spread 문법: ... 은 대상을 개별요소로 분리한다
+```
+// ...[1, 2, 3]는 [1, 2, 3]을 개별 요소로 분리한다(→ 1, 2, 3)
+console.log(...[1, 2, 3]) // 1, 2, 3
+
+// 문자열은 이터러블이다.
+console.log(...'Hello');  // H e l l o
+
+// Map과 Set은 이터러블이다.
+console.log(...new Map([['a', '1'], ['b', '2']]));  // [ 'a', '1' ] [ 'b', '2' ]
+console.log(...new Set([1, 2, 3]));  // 1 2 3
+
+// 이터러블이 아닌 일반 객체는 Spread 문법의 대상이 될 수 없다.
+console.log(...{ a: 1, b: 2 });
+// TypeError: Found non-callable @@iterator  
+```
+* 배열 합치는법
+```
+// ES6
+const arr = [1, 2, 3];
+// ...arr은 [1, 2, 3]을 개별 요소로 분리한다
+console.log([...arr, 4, 5, 6]); // [ 1, 2, 3, 4, 5, 6 ]
+
+or
+
+// ES6
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+// ...arr2는 [4, 5, 6]을 개별 요소로 분리한다
+arr1.push(...arr2); // == arr1.push(4, 5, 6);
+
+console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
+```
+
+* 기존 배열에 다른 배열의 개별 요소 삽입하는법
+```
+// ES6
+const arr1 = [1, 2, 3, 6];
+const arr2 = [4, 5];
+
+// ...arr2는 [4, 5]을 개별 요소로 분리한다
+arr1.splice(3, 0, ...arr2); // == arr1.splice(3, 0, 4, 5);
+
+console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
+```
+
+* 배열에 값 더넣는법
+```
+const arr = [1,2,3];
+arr.push(4);
+```
+
+* ES6 class
+```
+// 클래스 선언문
+class Person {
+  // constructor(생성자)
+  #p = 0; // private field
+  constructor(name) {
+    this._name = name;
+  }
+
+  sayHi() {
+    console.log(`Hi! ${this._name}`);
+  }
+}
+
+// 인스턴스 생성
+const me = new Person('Lee');
+me.sayHi(); // Hi! Lee
+
+console.log(me instanceof Person); // true
+```
+* 클래스는 선언문 이전에 참조 불가
+* 모듈: 어플리케이션을 구성하는 개별적 요소로서 재사용 가능한 코드조각, 모듈은 세부 사항을 캡슐화하고 공개가 필요한 api만을 외부에 노출한다.
+* 모듈은 파일단위로 분리되어있음
+* export키워드: 모듈안에 선언한 식별자를 외부에 공개하여 다른 모듈들이 참조할수 있게 만드는것
+```
+export const pi = Math.PI;
+
+// 변수, 함수 클래스를 하나의 객체로 구성하여 공개
+export { pi, square, Person }; //한번에 모아서 export 가능
+```
+* import: 모듈에서 공개(export) 한 대상을 로드 하려면 import 키워드를 사용
+* promise: 전통적인 콜백 패턴이 가진 단점을 보완하며 비동기 처리 시점을 명확하게 표현 가능한 장점이 있다
+  * 비동기 처리를 하다보면 처리순서를 보장하기 위해 여러개의 콜백 함수가 중첩되어 복잡도가 높아지는 콜백 헬이 발생하는 단점이 있다
+  * 콜백 헬은 가독성을 나쁘게 하며 실수를 유발하는 원인이 됨
+```
+// Promise 객체의 생성
+const promise = new Promise((resolve, reject) => {
+  // 비동기 작업을 수행한다.
+
+  if (/* 비동기 작업 수행 성공 */) {
+    resolve('result');
+  }
+  else { /* 비동기 작업 수행 실패 */
+    reject('failure reason');
+  }
+});
+```
+* promise는 비동기 처리가성공했는지 실패 했ㄴ느지 등의 상태 정보를 갖는다
+  * pending:	비동기 처리가 아직 수행되지 않은 상태	resolve 또는 reject 함수가 아직 호출되지 않은 상태
+  * fulfilled:	비동기 처리가 수행된 상태 (성공)	resolve 함수가 호출된 상태
+  * rejected:	비동기 처리가 수행된 상태 (실패)	reject 함수가 호출된 상태
+  * settled:	비동기 처리가 수행된 상태 (성공 또는 실패)	resolve 또는 reject 함수가 호출된 상태
+
+* 원시타입: boolean, null, undefined, number, string 
+* 객체타입: object
+* symbol: ES6에서 새롭게 추가된 7번째 타입, 변경불가능한 원시타입, 심볼은 주로 이름의 충돌 위험이 없는 유일한 객체 프로퍼티키를 만들기 위해 사용
+* 이터러블: 프로토콜을 준수한 객체
+* 배열은 Symbol.iterator 메소드를 소유 -> 배열은 이터러블 프로토콜을 준수한 이터러블
+* 이터러블 프로토콜을 준수한 배열은 for ...of 문에서 순회 가능
+```
+for (const item of array) {
+  console.log(item);
+}
+```
+* 일반 객체는 이터레이션 프로토콜을 준수(symbol.iterator 메소드를 소유) 하지 않기 떄문에 이터러블 x -> 일반 객체는 for...of문에서
+  순회할 수 없으며 spread 문법의 대상으로 사용x but 일반 객체도 이터러블 프로토콜을 준수하도록 구현하면 이터러블이 된다.
+* 이터레이터: 이터레이터 프로토콜은 next 메소드를소유, next 메소드를 호출하면 이터러블을 순회하며 value, done 프로퍼티를 갖는 이터레이트 리절트 객체를 반환하는것 -> 이터레이터 프로토콜을 준수한 이터레이터는 next 메소드를 갖는다
+```
+// 배열은 이터러블 프로토콜을 준수한 이터러블이다.
+const array = [1, 2, 3];
+
+// Symbol.iterator 메소드는 이터레이터를 반환한다.
+const iterator = array[Symbol.iterator]();
+
+// 이터레이터 프로토콜을 준수한 이터레이터는 next 메소드를 갖는다.
+console.log('next' in iterator); // true
+```
+* 제너레이터: 제너레이터함수는 이터러블을 생성하는 함수. 제너레이터함수를 사용하면 이터레이션 프로토콜을 준수해 이터러블을 생성하는 방식보다 간편하게 이터러블을 구현가능, 또한 비동기 처리에 유용
+* 제너레이터 함수는 함수코드블록의 실행을 일시 중지했다가 필요한 시점에 재시작가능한 특수한 함수
+```
+function* counter() {
+  console.log('첫번째 호출');
+  yield 1;                  // 첫번째 호출 시에 이 지점까지 실행된다.
+  console.log('두번째 호출');
+  yield 2;                  // 두번째 호출 시에 이 지점까지 실행된다.
+  console.log('세번째 호출');  // 세번째 호출 시에 이 지점까지 실행된다.
+}
+
+const generatorObj = counter();
+
+console.log(generatorObj.next()); // 첫번째 호출 {value: 1, done: false}
+console.log(generatorObj.next()); // 두번째 호출 {value: 2, done: false}
+console.log(generatorObj.next()); // 세번째 호출 {value: undefined, done: true}
+```
+* 디스트럭처링: 구조화된 배열 또는 객체를 디스트럭처링(비구조화, 파괴)하여 개별적인 변수에 할당하는것
+```
+// ES6 Destructuring
+const arr = [1, 2, 3];
+
+// 배열의 인덱스를 기준으로 배열로부터 요소를 추출하여 변수에 할당
+// 변수 one, two, three가 선언되고 arr(initializer(초기화자))가 Destructuring(비구조화, 파괴)되어 할당된다.
+const [one, two, three] = arr;
+// 디스트럭처링을 사용할 때는 반드시 initializer(초기화자)를 할당해야 한다.
+// const [one, two, three]; // SyntaxError: Missing initializer in destructuring declaration
+
+console.log(one, two, three); // 1 2 3
+
+// ES6 Destructuring
+const obj = { firstName: 'Ungmo', lastName: 'Lee' };
+
+// 프로퍼티 키를 기준으로 디스트럭처링 할당이 이루어진다. 순서는 의미가 없다.
+// 변수 lastName, firstName가 선언되고 obj(initializer(초기화자))가 Destructuring(비구조화, 파괴)되어 할당된다.
+const { lastName, firstName } = obj;
+
+console.log(firstName, lastName); // Ungmo Lee
+```
+* barbel: 최신 사양의 자바스크립트 코드를 ie 나 구형 브라우저에서도 동작하는 ES5 이하의 코드로 변환(트랜스파일링)할 수 있다.
+* Webpack: 의존관계에 있는 모듈들을 하나의 자바스크립트 파일로 번들링하는 모듈 번들러
+* 다수의 자바스크립트 파일을 하나의 파일로 번들링 하므로 html 파일에서 script 태그로 다수의 자바스크립트 파일을 로드해야 하는 번거로움도 사라진다
+* 
