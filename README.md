@@ -371,6 +371,8 @@ console.log(b); // "b" is not defined
 ```
 const a = `asdasd
 asdasd`;
+
+값을 넣고 싶으면 `asd ${} asd`
 ```
 
 * 화살표함수
@@ -402,6 +404,7 @@ function foo(...rest) {
 foo(1, 2, 3, 4, 5);
 ```
 * spread 문법: ... 은 대상을 개별요소로 분리한다
+  * 근데 주의점!: 오브젝트배열을 복사하면 주소값 복사기 때문에 바꾸면 다바뀐다.
 ```
 // ...[1, 2, 3]는 [1, 2, 3]을 개별 요소로 분리한다(→ 1, 2, 3)
 console.log(...[1, 2, 3]) // 1, 2, 3
@@ -574,4 +577,27 @@ console.log(firstName, lastName); // Ungmo Lee
 * barbel: 최신 사양의 자바스크립트 코드를 ie 나 구형 브라우저에서도 동작하는 ES5 이하의 코드로 변환(트랜스파일링)할 수 있다.
 * Webpack: 의존관계에 있는 모듈들을 하나의 자바스크립트 파일로 번들링하는 모듈 번들러
 * 다수의 자바스크립트 파일을 하나의 파일로 번들링 하므로 html 파일에서 script 태그로 다수의 자바스크립트 파일을 로드해야 하는 번거로움도 사라진다
-* 
+  
+* Promise.race: 함수1, 함수2 중먼저 돌아오는 함수 값만 리턴하는것
+```
+function a() {
+  return Promise.race([함수1, 함수2]);
+}
+
+a().then(console.log); 
+```
+
+* Promise.all: 함수1, 함수2 가 끝나면 리턴되는것, 여기서 join은 두 함수 리턴값을 합쳐 주는것
+```
+function a() {
+  return Promise.all([함수1, 함수2]).then(fruits => fruits.join(' + ') );
+}
+
+a().then(console.log); 
+```
+
+
+
+
+
+
