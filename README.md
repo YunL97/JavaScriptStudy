@@ -702,4 +702,9 @@ arr instanceof Object // true
 ``` 
 * Object.prototype.toString.call() 함수를 통해서 참조형 타입 검사가 가능하다 -> 무적은 아님 
 * 언어체크를 할때는 구글링해서 보는게 좋음 
-* 
+* undefined는 선언했지만 값은 정의되지 않고 할당하지 않은것 type undefined
+* null: 값이 없는것을 명시적으로 표현 , type object
+* == = eqeq ==를 사용하면 느슨해지는데 많이 사용하지말자
+* 형변환을 해서 === 을 이용해 정확하게 검사를 하는게 좋다
+* parseInt를 사용할때는 parseInt('9.9999', 10) 으로 10진수를 사용한다 라고 정의해주는게 좋음
+* 타입을 변환할때는 명시적으로 형변환하는것이 좋음
