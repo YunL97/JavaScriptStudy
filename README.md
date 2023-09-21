@@ -690,3 +690,16 @@ const sum = function () {
 console.log(x) // referenceError
 let x = 10
 ```
+* new String() 로 값을 넣으면 참조형
+* 참조형은 감벼랗기가 어렵다
+* typeof null 은 object로 나오는데 이는 언어적 오류 -> 자바스크립트가 수정할수 없다고 해서 그냥 놔두는중
+* 자바스크립트 언어는 동적으로 변하는 언어 => 타입도 동적
+* 타입을 검사할때 굉장희 주의해야함
+* 참조형의 최상위는 Object -> Object 프로토타입 체인을 타기때문
+```
+arr = []
+arr instanceof Object // true
+``` 
+* Object.prototype.toString.call() 함수를 통해서 참조형 타입 검사가 가능하다 -> 무적은 아님 
+* 언어체크를 할때는 구글링해서 보는게 좋음 
+* 
