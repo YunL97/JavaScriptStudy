@@ -723,4 +723,5 @@ arr instanceof Object // true
 * 즉시실행함수 = IIFE
 * 중괄호 내부에는 값과 식만 넣어야함
 * 삼항연산자가 길어지면 switch문을 쓰자
-* 
+* else if 문은 else를 타고 if를 탄다고 생각하자
+* else문은 습관이 되면 안된다
