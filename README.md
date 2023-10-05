@@ -725,3 +725,5 @@ arr instanceof Object // true
 * 삼항연산자가 길어지면 switch문을 쓰자
 * else if 문은 else를 타고 if를 탄다고 생각하자
 * else문은 습관이 되면 안된다
+* early return: 예를들어 로그인 로직이있는데 로그인 안할때만 타는 로직이면 isLogin해서 return 하는게 좋다 -> 알아보기도 쉽고 코드 도는시간도 잡을 수 있음 -> 최상위에 거르는 로직 있는게 중요
+* 
