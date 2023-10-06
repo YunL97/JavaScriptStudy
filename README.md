@@ -726,4 +726,9 @@ arr instanceof Object // true
 * else if 문은 else를 타고 if를 탄다고 생각하자
 * else문은 습관이 되면 안된다
 * early return: 예를들어 로그인 로직이있는데 로그인 안할때만 타는 로직이면 isLogin해서 return 하는게 좋다 -> 알아보기도 쉽고 코드 도는시간도 잡을 수 있음 -> 최상위에 거르는 로직 있는게 중요
+* 부정조건문은 지양하는게 좋음 ex)!asd 
+  1. 생각을 여러번 해야하기 때문
+  2. 프로그래밍 언어 자체로 if문이 처음에 들어오고 true부터 실행시키기 때문
+
+* 부정조건문은 early return, form validationm 보안 혹은 검사하는 로직에서는 부정조건을 사용함
 * 
