@@ -731,4 +731,6 @@ arr instanceof Object // true
   2. 프로그래밍 언어 자체로 if문이 처음에 들어오고 true부터 실행시키기 때문
 
 * 부정조건문은 early return, form validationm 보안 혹은 검사하는 로직에서는 부정조건을 사용함
+* default case: 함수에 값이 들어가지 않을 때 default 기본값을 넣는게 중요
+* switch 값에도 default 값을 넣는게 중요, 사용자가 잘못 넣을수 있기 때문
 * 
