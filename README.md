@@ -733,4 +733,6 @@ arr instanceof Object // true
 * 부정조건문은 early return, form validationm 보안 혹은 검사하는 로직에서는 부정조건을 사용함
 * default case: 함수에 값이 들어가지 않을 때 default 기본값을 넣는게 중요
 * switch 값에도 default 값을 넣는게 중요, 사용자가 잘못 넣을수 있기 때문
-* 
+* 명시적인 연산자 사용을 지양하자 ex) 괄호를 달아서 사용, ++number 지양 -> 디버깅 하기가 쉽다
+* false || 10 -> falsy 연산자  -> false 면 10 반환
+* null or undefined ?? 10 -> nullish 연산자  null 이나 undefined면 10 반환
