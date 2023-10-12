@@ -717,7 +717,7 @@ arr instanceof Object // true
  2. 규칙적이지 않은 매개변수가 들어올때는 arguments, rest parameter 고려
  3. 이미만든 함수가 있으면 랩핑하는 함수를 만든다
  4. 매개변수를 객체에 담아서 넘긴다
-
+ 
 * 식은 값으로  귀결 될 수 있다
 * () 소괄호 안에는 값만 들어가야 하는데 식을 넣고 싶으면 if 문 대신 삼항 연산자를 넣으면 된다 -> 리액트에서 jsx가 js 코드로 변환될때 ()값안에 데이터가 들어가는데 if문 같은 게 있으면 실행이 되지 않는다
 * 즉시실행함수 = IIFE
@@ -736,3 +736,6 @@ arr instanceof Object // true
 * 명시적인 연산자 사용을 지양하자 ex) 괄호를 달아서 사용, ++number 지양 -> 디버깅 하기가 쉽다
 * false || 10 -> falsy 연산자  -> false 면 10 반환
 * null or undefined ?? 10 -> nullish 연산자  null 이나 undefined면 10 반환
+* 자바스크립트의 배열은 객체다
+*  
+
