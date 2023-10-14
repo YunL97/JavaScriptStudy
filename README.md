@@ -737,5 +737,7 @@ arr instanceof Object // true
 * false || 10 -> falsy 연산자  -> false 면 10 반환
 * null or undefined ?? 10 -> nullish 연산자  null 이나 undefined면 10 반환
 * 자바스크립트의 배열은 객체다
-*  
-
+*  typeof 로 객체를 확인하는것은 좋지 않음
+* 배열인지 확인하는거는 Array.isArray(arr) 을 하는것이 좋음
+* arr길이가 3 인데 arer[9] = 10을 넣고 length 찍으면 10이 나옴
+* 배열의 length은 주의를 많이 해야함
