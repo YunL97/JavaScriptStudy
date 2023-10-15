@@ -747,4 +747,5 @@ arr instanceof Object // true
 * argument: 유사배열 -> 배열은아님 -> map같은 고차함수를 못씀 Array.from으로 변환하면 사용가능
 * map, forEach 차이: map은 리턴이 있고 foreach는 리턴이 없음
 * forEach는 배열을 순회만 할뿐 -> ex 함수를 실행할때 사용하는게 좋겠네
+* 고차함수에 break같은거 안먹힘 -> try catch 사용하자 아니면 every, some 같은것도 있다
 * 
