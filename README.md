@@ -741,3 +741,10 @@ arr instanceof Object // true
 * 배열인지 확인하는거는 Array.isArray(arr) 을 하는것이 좋음
 * arr길이가 3 인데 arer[9] = 10을 넣고 length 찍으면 10이 나옴
 * 배열의 length은 주의를 많이 해야함
+* 배열에 요소가 아무것도 없으면 undefined
+* 배열 분해 ex) const [year, month, day] = arr.toISOString().split('T')[0].split('-)
+* array.from: 배열로 변환
+* argument: 유사배열 -> 배열은아님 -> map같은 고차함수를 못씀 Array.from으로 변환하면 사용가능
+* map, forEach 차이: map은 리턴이 있고 foreach는 리턴이 없음
+* forEach는 배열을 순회만 할뿐 -> ex 함수를 실행할때 사용하는게 좋겠네
+* 
