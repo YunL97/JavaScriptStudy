@@ -748,4 +748,39 @@ arr instanceof Object // true
 * map, forEach 차이: map은 리턴이 있고 foreach는 리턴이 없음
 * forEach는 배열을 순회만 할뿐 -> ex 함수를 실행할때 사용하는게 좋겠네
 * 고차함수에 break같은거 안먹힘 -> try catch 사용하자 아니면 every, some 같은것도 있다
-* 
+* 객체안에 함수가 있으면 메소드
+* else 문이나 switch 너무길때 사용법 -> lookup table
+```
+function getUserType(type) {
+  const a = {
+    a: 'a',
+    b: 'b',
+    c: 'c',
+    d: 'd',
+    undefined: '해당없음'
+  }
+  return a[type] || a[undefined];
+}
+```
+* object destructuring: 객체 구조 분해
+```
+function a(a,b,c)  로하면 a(1,2,3) 이런식, 순서를 맞춰야함
+function a({a,b,c}) 로하면 a(a:1,,c:3, b:2) 이런식으로 하면됨
+function a(d, {a,b,c}) 로하면 d는 필수 
+```
+* Object.freeze: 오브젝트 못바꾸게 하는거
+* Object.isFrozen: freeze 된지 알려줌 객체안에 객체가 있으면 중첩 프리징을 해야함
+* typesctipt 사용하면 readonly 사용하면됨
+* prototype 조작 지양해야함 -> js 가 많이 발전했기 때문
+* class 가 없는 시절에는 생성자 함수를 만들었어야함
+* prototype 조작 말고 다르게 하는법
+  * 직접 만들어서 모듈화
+  * 만들어서 npm 배포
+* 자바스크립트의 객체는 주로 object.prototype에서 확장해서 객체발전
+* 객체 같은거를 접근할때는 직접 접근하지말고 함수같은거를 떼서 거기서 접근하는게 좋음
+* api 통신할때 옵셔널 넣자
+```
+if(a?.data?.c?.d?.email) {
+  return a?.data?.c?.d?.email
+}
+```
