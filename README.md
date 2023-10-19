@@ -791,12 +791,18 @@ if(a?.data?.c?.d?.email) {
     2. 매게변수로 전달가능(콜백함수)
     3. 함수가 함수를 반환(고차함수)
 ```
-a: function() {
-
+a: function(opt) {
+  opt = opt || asd;
+  opt.b = opt.b || c;
 } 
 ===
-a() {
+a({b = c, d = req(d)} = asd) {  // 만약 d가 필수여야하면
 
 }
+
+const req = (name) => {
+  htrow new Error('required is ' + name)
+}
 ```
-  
+* rest parameter: 파라미터가 몇개 들어올지 모를 때사용 ex) function a(...args)
+* 
