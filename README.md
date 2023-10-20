@@ -791,14 +791,20 @@ if(a?.data?.c?.d?.email) {
     2. 매게변수로 전달가능(콜백함수)
     3. 함수가 함수를 반환(고차함수)
 ```
-a: function() {
-
+a: function(opt) {
+  opt = opt || asd;
+  opt.b = opt.b || c;
 } 
 ===
-a() {
+a({b = c, d = req(d)} = asd) {  // 만약 d가 필수여야하면
 
 }
+
+const req = (name) => {
+  htrow new Error('required is ' + name)
+}
 ```
+
 * 화살표 함수를 사용하지 않을 이유: 화살표 함수를 메서드 ex) 객체안에 함수를 넣을때) 안에 넣으면 메서드에 접근하면 undefined가 뜸
 ```
 const user = {
@@ -814,4 +820,6 @@ user.getName();
 * 화살표 함수를 사용할때는 argument 같은거를 호출할때는 주의해야한다 -> ...restparameter 사용하면댐
 *  화살표 함수로 만든 함수는 생성자로 사용불가
 * 클래스를 다룰 때 화살표함수를 사용못함
+=======
+* rest parameter: 파라미터가 몇개 들어올지 모를 때사용 ex) function a(...args)
 * 
