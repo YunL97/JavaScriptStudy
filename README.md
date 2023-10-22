@@ -822,4 +822,5 @@ user.getName();
 * 클래스를 다룰 때 화살표함수를 사용못함
 * rest parameter: 파라미터가 몇개 들어올지 모를 때사용 ex) function a(...args)
 * 화살표 함수를 적극적으로 사용하되 주의점들을 숙지해야함
+* addEventListener도 callback 함수
 * 
