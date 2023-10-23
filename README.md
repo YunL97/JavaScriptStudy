@@ -836,4 +836,11 @@ function add(num1) {
 const addOne = add(1)(2) // 개별적 이다 bind랑 같은 역할을 함
 const addTwo = add(2)(3) // 개별적
 ```
+* numeric Operator
+```
+const PROCE = {
+  MIN: 1_000_000
+}
+```
+* 자바스크립트는 일반적으로 camelCase
 * 
