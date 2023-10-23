@@ -811,7 +811,7 @@ const user = {
   name: 'asd',
   getName:  () => {  // 화살표 함수를 쓰면 this.name 을 찾지 못함
     return this.name;
-  }
+  } 
 }
 user.getName(); 
 ```
@@ -823,4 +823,17 @@ user.getName();
 * rest parameter: 파라미터가 몇개 들어올지 모를 때사용 ex) function a(...args)
 * 화살표 함수를 적극적으로 사용하되 주의점들을 숙지해야함
 * addEventListener도 callback 함수
+* 콜백함수를 사용하면 제어권 위임이 가능
+* 순수함수: side effect를 일으키지 않는 함수
+* js 에서 객체를 다룰때는 새로운 객체를 만들어서 반환해주는 게 좋음 -> ex) 객체나 배열을 받아서 반환할때 쉽게 {..obj} 하면될듯 ?
+* closure
+```
+function add(num1) {
+  return function sum(num2) {
+    return num1 + num2
+  }
+}
+const addOne = add(1)(2) // 개별적 이다 bind랑 같은 역할을 함
+const addTwo = add(2)(3) // 개별적
+```
 * 
