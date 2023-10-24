@@ -858,4 +858,34 @@ const PROCE = {
 
 * catch 를 사용할때는 에러 로그 수집을 해주는게 좋음
   * sentry를 많이 사용함
-* 
+
+* html은 문서로 이루어진 구조
+* 웹표준, 시멘틱 태그를 잘작성하면 seo에 좋음
+* Node: 문서내에 모든객체
+* Element: 태그로 둘러싸인 요소
+* nodelist: element.childNodes와 같은 속성과 documentquerySelectorAll와 같은 메서드에 의해 반환되는 노드의 컬렉션
+* 노드리스트에는 배열을 다루는 것이 없기 떄문에 관습적으로 일반적인 배열로 바꿔서 사용해야함
+* xss 스크립트르 직접 삽입해서 공격하는 기법
+* innerHhtml 은 굉장히 오래됐고 안좋은 api, innerHtml 을 사용하면 보안에 좋지 않음 xss 크로스 스크립팅 공격
+```
+document.querySelector('main').insertAdjacentHtml('beforeend', 'hello') // 밑의 코드에 비해 30 40 퍼센트 빠름
+
+vs 
+
+document.querySelector('main').innerHtml = 'hello' //innerhtml 보단 innertext를 innertext 보다는 textcontent 
+```
+* data attribute: 태그안에 속성 넣는것
+```
+<main
+  id = 'asd'
+  data-columns='3'
+  data-index-number='123'
+>
+main
+</main>
+
+<script>
+console.log(main.dataset.indexNumber) //123 자동으로 카멜케이스로 전환
+delete.main.dataset.indexNumber
+</script>
+```
