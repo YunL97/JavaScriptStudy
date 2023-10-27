@@ -903,9 +903,10 @@ button.addEventListener('click', (): void=> {
 2. 로직, 문
 3. 반환
   
-* indent depth 가 깊어지면 하는법
+* indent depth 가 깊어지면 하는법-> indent depth는 복작해질수록 깊어짐
   * 조기반환
   * callback => promise => async & await
   * 고차함수
   * 함수를 나누고 추상화
   * 메서드 체이닝(.then().then().then())
+  * 도구를 사용해서 통일
